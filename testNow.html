@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestNow</title>
+    <style>
+
+.no-underline {
+        text-decoration: none; /* Remove underline */
+        color: inherit; /* Inherit color from parent element */
+    }
+
+         /* Reset and Box Sizing */
+         *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('img1/image.png'); /* Update with the correct image path */
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            padding-left: 20px; /* Adds some padding to the left to give space */
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+
+        .hero button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 100px; /* Ensures no additional margin on the left */
+        }
+
+        .hero button:hover {
+            background-color: #357ab9;
+        }
+
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: absolute; /* Change to absolute to overlap hero */
+            top: 0; /* Position at the top of the hero */
+            left: 0;
+            right: 0;
+            z-index: 1; /* Ensures the navbar is above the hero section */
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar img {
+            width: 100px;
+            margin-right: 20px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            padding: 5px;
+            font-size: 18px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .navbar ul li a:hover {
+            color: #4a90e2;
+        }
+
+        .navbar .user {
+            width: 50px;
+            margin-left: auto;
+            vertical-align: middle;
+        }
+
+
+        /* Common Tests Section */
+        .tests-section {
+            background-color: white;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .tests-section h2 {
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #333;
+        }
+
+        .tests-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .tests-icons div {
+            text-align: center;
+        }
+
+        .tests-icons img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .tests-icons p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Specialties Section */
+        .specialties {
+            padding: 20px 0; /* Reduced top and bottom padding */
+            text-align: center;
+            background-color: white;
+            margin-top: 5px;
+            margin-bottom: 0;
+        }
+
+        .specialties h2 {
+            margin-bottom: 10px;
+            color: #00838F;
+            margin-bottom: 10px;
+            text-align: left;
+            margin-left: 100px;
+            margin-top: 0;
+        }
+
+        .specialties-container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        .specialty {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .specialty img {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+
+        .specialty p {
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="img1/image-4.png" alt="ConsultWell Logo">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="findDoctor.html">Find Doctors</a></li>
+                <li><a href="real_videoConsult.html">Video Consult</a></li>
+                <li><a href="testNow.html">Lab Tests</a></li>
+            </ul>
+        </div>
+        <img class="user" src="img/user.svg" alt="User Profile">
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <a href="testDone.html" class="no-underline">
+        <button>Test now</button></a>
+    </section>
+
+    <!-- Specialties Section -->
+    <div class="specialties">
+        <h2>Common Tests</h2>
+        <div class="specialties-container">
+            <div class="specialty">
+                <a href="testDone.html" class="no-underline">
+                <img src="img1/image-5.png" alt="Gynecology"></a>
+
+            </div>
+            <div class="specialty">
+                <a href="testDone.html" class="no-underline">
+                <img src="img1/image-6.png" alt="Sexology"></a>
+            </div>
+            <div class="specialty">
+                <a href="testDone.html" class="no-underline">
+                <img src="img1/image-7.png" alt="General Physician"></a>
+
+            </div>
+            <div class="specialty">
+                <a href="testDone.html" class="no-underline">
+                <img src="img1/image-8.png" alt="Dermatology"></a>
+            </div>
+            <div class="specialty">
+                <a href="testDone.html" class="no-underline">
+                <img src="img1/image-9.png" alt="Psychiatry"></a>
+            </div>
+            <div class="specialty">
+                <a href="testDone.html" class="no-underline">
+                <img src="img1/image-10.png" alt="Stomach and Digestion"></a>
+            </div>
+            <div class="specialty">
+                <a href="testDone.html" class="no-underline">
+                <img src="img1/image-11.png" alt="Pediatrics"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Book with Us Section -->
+    <div class="Tests">
+        <div>
+            <img src="img1/image-12.png" alt="Why Book with Us" />
+            <!-- Additional content can go here -->
+        </div>
+    </div>
+
+</body>
+</html>

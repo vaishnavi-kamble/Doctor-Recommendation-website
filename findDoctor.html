@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <style>
+      /* Navbar */
+      .no-underline {
+        text-decoration: none; /* Remove underline */
+        color: inherit; /* Inherit color from parent element */
+    }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px; /* Add padding */
+    border-bottom: 1px solid #ccc;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar img {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar ul li {
+    padding: 5px;
+    font-size: 18px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.navbar .user {
+    width: 50px;
+    margin-left: auto;
+    vertical-align: middle; /* Ensures the icon aligns vertically */
+}
+
+/* Search Section */
+/* Search Section */
+.search-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px; /* Adequate padding */
+    background-color: white;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-left: 100px; /* Adjusted margin for centering */
+}
+
+.search-bar input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px; /* Add some space between input and button */
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #017df6; /* Set your preferred background color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.search-bar button:hover {
+    background-color: #005bb5; /* Darker color on hover */
+}
+
+.search-image img {
+    width: 500px; /* Reduced size to balance layout */
+    height: 300px;
+    margin-right: 100px;
+}
+
+
+/* Specialties Section */
+.specialties {
+    padding: 20px 0; /* Reduced top and bottom padding */
+    text-align: center;
+    background-color: white;
+}
+
+.specialties h2 {
+    margin-bottom: 200px;
+    color: #00838F;
+    margin-bottom: 0px;
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 0;
+}
+
+.specialties-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.specialty {
+    text-align: center;
+    padding: 10px;
+}
+
+.specialty img {
+    width: 120px;
+    margin-bottom: 10px;
+}
+
+.specialty p {
+    color: black;
+    font-weight: bold;
+}
+
+/* Footer */
+.footer {
+    padding: 10px;
+    text-align: center;
+    background-color: #4ABDAC;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px; /* Add some margin to space it from specialties */
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="img/image-4.png" alt="ConsultWell Logo">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="findDoctor.html">Find Doctors</a></li>
+                <li><a href="real_videoConsult.html">Video Consult</a></li>
+                <li><a href="testNow.html">Lab Tests</a></li>
+            </ul>
+        </div>
+        <img class="user" src="img/user.svg" alt="User Profile">
+    </div>
+
+    <!-- Search Section (Search Bar + Image) -->
+    <div class="search-section">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for doctors, clinics or hospitals">
+            <button onclick="validateSearch()">Search</button>
+        </div>
+        <div class="search-image">
+            <img src="img/image-35.png" alt="Consultation Illustration">
+        </div>
+    </div>
+    
+
+    <!-- Specialties Section -->
+    <div class="specialties">
+        <a href="top_s.html" class="no-underline">
+        <h2>Top Specialties</h2></a>
+        <div class="specialties-container">
+            <div class="specialty">
+                <a href="top_s.html" class="no-underline">
+                <img src="img/image-28.png" alt="Gynecology"></a>
+            </div>
+            <div class="specialty">
+                <a href="top_s.html" class="no-underline">
+                <img src="img/image-29.png" alt="Sexology"></a>
+                
+            </div>
+            <div class="specialty">
+                <a href="top_s.html" class="no-underline">
+                <img src="img/image-30.png" alt="General Physician"></a>
+               
+            </div>
+            <div class="specialty">
+                <a href="top_s.html" class="no-underline">
+                <img src="img/image-31.png" alt="Dermatology"></a>
+                
+            </div>
+            <div class="specialty">
+                <a href="top_s.html" class="no-underline">
+                <img src="img/image-32.png" alt="Psychiatry"></a>
+                
+            </div>
+            <div class="specialty">
+                <a href="top_s.html" class="no-underline">
+                <img src="img/image-33.png" alt="Stomach and Digestion"></a>
+                
+            </div>
+            <div class="specialty">
+                <a href="top_s.html" class="no-underline">
+                <img src="img/image-34.png" alt="Pediatrics"></a>
+              
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Reviews and FAQs</p>
+    </div>
+<script>
+        function validateSearch() {
+            // Get the value from the search input field
+            const searchValue = document.getElementById('searchInput').value;
+
+            // Check if the search field is empty
+            if (searchValue.trim() === "") {
+                // If empty, show an alert message and prevent redirection
+                alert("Please enter a search term before proceeding.");
+            } else {
+                // If not empty, redirect to the 'doctor.html' page
+                window.location.href = "doctor.html";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+.component {
+  width: 1920px;
+  height: 1090px;
+}
+
+.component .overlap {
+  position: relative;
+  height: 1089px;
+}
+
+.component .rectangle {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+}
+
+.component .div {
+  position: absolute;
+  width: 1920px;
+  height: 222px;
+  top: 858px;
+  left: 0;
+  background-color: #1b7a8894;
+}
+
+.component .text-wrapper {
+  position: absolute;
+  width: 511px;
+  top: 911px;
+  left: 94px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 64px;
+  letter-spacing: -1.28px;
+  line-height: 76.8px;
+  white-space: nowrap;
+}
+
+.component .text-wrapper-2 {
+  position: absolute;
+  width: 511px;
+  top: 1000px;
+  left: 780px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 64px;
+  letter-spacing: -1.28px;
+  line-height: 76.8px;
+  white-space: nowrap;
+}
+
+.component .neurology {
+  position: absolute;
+  width: 249px;
+  top: 508px;
+  left: 90px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 32px;
+  letter-spacing: -0.64px;
+  line-height: 38.4px;
+}
+
+.component .rectangle-2 {
+  position: absolute;
+  width: 1271px;
+  height: 88px;
+  top: 220px;
+  left: 20px;
+  background-color: #94c5e1;
+}
+
+.component .frame {
+  position: absolute;
+  width: 1811px;
+  height: 524px;
+  top: 220px;
+  left: 0;
+}
+
+.component .div-wrapper {
+  height: 524px;
+}
+
+.component .div-wrapper-2 {
+  width: 1811px;
+  height: 524px;
+}
+
+.component .overlap-group {
+  position: relative;
+  width: 1822px;
+  height: 722px;
+  top: -198px;
+  left: -11px;
+}
+
+.component .group {
+  position: absolute;
+  width: 1769px;
+  height: 722px;
+  top: 0;
+  left: 53px;
+}
+
+.component .group-wrapper {
+  height: 722px;
+}
+
+.component .group-2 {
+  width: 1769px;
+  height: 722px;
+}
+
+.component .group-3 {
+  position: relative;
+  width: 1771px;
+  height: 722px;
+}
+
+.component .image {
+  position: absolute;
+  width: 209px;
+  height: 168px;
+  top: 0;
+  left: 0;
+}
+
+.component .rectangle-3 {
+  position: absolute;
+  width: 409px;
+  height: 88px;
+  top: 372px;
+  left: 76px;
+  background-color: #1b7a88;
+}
+
+.component .img {
+  position: absolute;
+  width: 178px;
+  height: 191px;
+  top: 504px;
+  left: 22px;
+  object-fit: cover;
+}
+
+.component .image-2 {
+  position: absolute;
+  width: 172px;
+  height: 191px;
+  top: 504px;
+  left: 281px;
+  object-fit: cover;
+}
+
+.component .image-3 {
+  position: absolute;
+  width: 184px;
+  height: 195px;
+  top: 513px;
+  left: 534px;
+  object-fit: cover;
+}
+
+.component .image-4 {
+  position: absolute;
+  width: 184px;
+  height: 195px;
+  top: 513px;
+  left: 799px;
+  object-fit: cover;
+}
+
+.component .image-5 {
+  position: absolute;
+  width: 173px;
+  height: 195px;
+  top: 513px;
+  left: 1064px;
+  object-fit: cover;
+}
+
+.component .image-6 {
+  position: absolute;
+  width: 194px;
+  height: 209px;
+  top: 513px;
+  left: 1318px;
+  object-fit: cover;
+}
+
+.component .image-7 {
+  position: absolute;
+  width: 176px;
+  height: 196px;
+  top: 513px;
+  left: 1593px;
+  object-fit: cover;
+}
+
+.component .p {
+  position: absolute;
+  width: 866px;
+  top: 198px;
+  left: 328px;
+  font-family: "Inter", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: -0.8px;
+  line-height: 48px;
+}
+
+.component .rectangle-4 {
+  position: absolute;
+  width: 411px;
+  height: 90px;
+  top: 197px;
+  left: 10px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #000000;
+}
+
+.component .text-wrapper-3 {
+  position: absolute;
+  width: 409px;
+  top: 202px;
+  left: 0;
+  font-family: "Inter", Helvetica;
+  font-weight: 700;
+  color: #070606;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: -0.8px;
+  line-height: 48px;
+}
+
+.component .text-wrapper-4 {
+  position: absolute;
+  width: 511px;
+  top: 398px;
+  left: 147px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 48px;
+  letter-spacing: -0.96px;
+  line-height: 57.6px;
+}
+
+.component .image-8 {
+  position: absolute;
+  width: 578px;
+  height: 455px;
+  top: 27px;
+  left: 1265px;
+}
+
+.component .user {
+  position: absolute;
+  width: 63px;
+  height: 68px;
+  top: 38px;
+  left: 1811px;
+}
+
+.component .group-4 {
+  position: absolute;
+  width: 1064px;
+  height: 88px;
+  top: 72px;
+  left: 271px;
+}
+
+.component .frame-2 {
+  position: absolute;
+  width: 175px;
+  height: 58px;
+  top: 0;
+  left: 0;
+}
+
+.component .text-wrapper-5 {
+  position: absolute;
+  width: 175px;
+  top: -1px;
+  left: 0;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #070707;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: -0.8px;
+  line-height: 48px;
+}
+
+.component .frame-3 {
+  position: absolute;
+  width: 319px;
+  height: 55px;
+  top: 4px;
+  left: 463px;
+}
+
+.component .text-wrapper-6 {
+  position: absolute;
+  width: 319px;
+  top: -1px;
+  left: 0;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #070707;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: -0.8px;
+  line-height: 48px;
+  white-space: nowrap;
+}
+
+.component .frame-4 {
+  position: absolute;
+  width: 288px;
+  height: 85px;
+  top: 2px;
+  left: 175px;
+}
+
+.component .text-wrapper-7 {
+  position: absolute;
+  width: 288px;
+  top: -1px;
+  left: 0;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #070707;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: -0.8px;
+  line-height: 48px;
+}
+
+.component .frame-5 {
+  position: absolute;
+  width: 282px;
+  height: 55px;
+  top: 4px;
+  left: 782px;
+}
+
+.component .text-wrapper-8 {
+  position: absolute;
+  width: 282px;
+  top: -1px;
+  left: 0;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #070707;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: -0.8px;
+  line-height: 48px;
+  white-space: nowrap;
+}

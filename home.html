@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consult Well</title>
+    <style>
+
+.no-underline {
+        text-decoration: none; /* Remove underline */
+        color: inherit; /* Inherit color from parent element */
+    }
+
+      .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px; /* Add padding */
+    border-bottom: 1px solid #ccc;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar img {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar ul li {
+    padding: 5px;
+    font-size: 18px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.navbar .user {
+    width: 50px;
+    margin-left: auto;
+    vertical-align: middle; /* Ensures the icon aligns vertically */
+}
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+
+        .search-bar select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px;
+            flex-wrap: wrap;
+        }
+
+        .service {
+            text-align: center;
+            flex-basis: 22%;
+            padding: 10px;
+        }
+
+        .service img {
+            width:300%;
+            height: auto;
+            max-width: 150px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .service h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #e2e6ea;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-section {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links, .footer-patient-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-right: 100px;
+        }
+
+        .footer-links a, .footer-patient-links a {
+            text-decoration: none;
+            color: #007bff;
+            margin-left: 100px;
+            
+        }
+
+        .footer-info {
+            margin-top: 10px;
+        }
+
+        .footer-info p {
+            margin: 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="img/image-4.png" alt="ConsultWell Logo">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="findDoctor.html">Find Doctors</a></li>
+                <li><a href="real_videoConsult.html">Video Consult</a></li>
+                <li><a href="testNow.html">Lab Tests</a></li>
+            </ul>
+        </div>
+    <ul>
+        <li><a href="SignIn.html">Login</a></li>
+        <li><a href="signUp.html">SignUp</a></li>
+    </ul>
+    </div>
+    <main>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for doctors, clinics or hospitals">
+            <button onclick="validateSearch()">Search</button>
+        </div>
+
+        <div class="services">
+            <div class="service">
+                <a href="real_videoConsult.html" class="no-underline">
+                <img src="img/instant_video_consulation.png" alt="Instant Video Consultation">
+                <h2>Instant Video Consultation</h2></a>
+            </div>
+            <div class="service">
+                <a href="pHistory.html" class="no-underline">
+                <img src="img/ph.jpg" alt="Patient History">
+                <h2>Patient History</h2></a>
+            </div>
+            <div class="service">
+                <a href="findDoctor.html" class="no-underline">
+                <img src="img/find_doctors.png" alt="Find Doctors">
+                <h2>Find Doctors</h2></a>
+            </div>
+            <div class="service">
+                <a href="testNow.html" class="no-underline">
+                <img src="img/lt.jpg" alt="Book a Lab Test">
+                <h2>Book a Lab test</h2></a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-section">
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Blog</a>
+                <a href="#">Careers</a>
+                <a href="#">Press</a>
+            </div>
+            <div class="footer-links">
+                <a href="#">More</a>
+                <a href="#">Help</a>
+                <a href="#">Developers</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">PCS T&C</a>
+            </div>
+            <div class="footer-patient-links">
+                <a href="#">For patients</a>
+                <a href="#">Search for doctors</a>
+                <a href="#">Search for clinics</a>
+                <a href="#">Search for hospitals</a>
+                <a href="#">Read health articles</a>
+                <a href="#">Read about medicines</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function validateSearch() {
+            // Get the value from the search input field
+            const searchValue = document.getElementById('searchInput').value;
+
+            // Check if the search field is empty
+            if (searchValue.trim() === "") {
+                // If empty, show an alert message and prevent redirection
+                alert("Please enter a search term before proceeding.");
+            } else {
+                // If not empty, redirect to the 'doctor.html' page
+                window.location.href = "doctor.html";
+            }
+        }
+    </script>
+    
+</body>
+</html>

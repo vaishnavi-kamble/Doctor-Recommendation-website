@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - ConsultWell</title>
+    <style>
+
+.no-underline {
+        text-decoration: none; /* Remove underline */
+        color: inherit; /* Inherit color from parent element */
+    }
+
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar img {
+            width: 100px;
+            margin-right: 20px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            padding: 5px;
+            font-size: 18px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .navbar ul li a:hover {
+            color: #4a90e2;
+        }
+
+        .navbar .user {
+            width: 50px;
+            margin-left: auto;
+            vertical-align: middle;
+        }
+
+        main {
+            background-color: white;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+            min-height: calc(100vh - 62px); /* Adjust for navbar height */
+        }
+
+        .signup-box {
+            background-color: #b5d2f7;
+            padding: 10px;
+            border-radius: 10px;
+            width: 400px;
+            margin-top: 0;
+            height: 500px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px; /* Matching text size */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px 5px;
+            vertical-align: top;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333; /* Matching text color */
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px; /* Matching text size */
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px; /* Matching text size */
+        }
+
+        input:focus {
+            border-color: #4a90e2;
+            outline: none;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px; /* Matching text size */
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        .link {
+            display: block;
+            text-align: center;
+            cursor: pointer;
+            color: #007BFF;
+            margin-top: 10px;
+        }
+
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .navbar ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .navbar img {
+                width: 80px;
+            }
+
+            .signup-box {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="img/image-4.png" alt="ConsultWell Logo">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="findDoctor.html">Find Doctors</a></li>
+                <li><a href="real_videoConsult.html">Video Consult</a></li>
+                <li><a href="testNow.html">Lab Tests</a></li>
+            </ul>
+        </div>
+        <img class="user" src="img/user.svg" alt="User Profile">
+    </div>
+
+    <!-- Main Section for Sign Up -->
+    <main>
+        <div class="signup-box">
+            <h2>Create Your Account</h2>
+            <form id="signup-form" action="signup_process.php" method="POST" novalidate>
+                <table>
+                    <tr>
+                        <td><label for="loginId">Login ID:</label></td>
+                        <td><input type="text" id="loginId" name="loginId" placeholder="Enter your login ID" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password:</label></td>
+                        <td><input type="password" id="password" name="password" placeholder="Enter your password" required minlength="6"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="button" onclick="validateForm()">Login</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <span class="link" onclick="showPopup()">Forgot Password?</span>
+                            <a href="signUp.html" class="no-underline">
+                            <span class="link">Create Account</span></a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </main>
+
+    <!-- Forgot Password Popup -->
+    <div id="overlay"></div>
+    <div id="popup">
+        <h3>Forgot Password</h3>
+        <div class="form-group">
+            <label for="contact">Enter your Email or Phone Number:</label>
+            <input type="text" id="contact" placeholder="Email or Phone" required>
+        </div>
+        <button onclick="sendPassword()">Send Password</button>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function showPopup() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function sendPassword() {
+            const contact = document.getElementById('contact').value;
+            if (contact === '') {
+                alert('Please enter your email or phone number.');
+            } else {
+                alert('Password has been sent to ' + contact);
+                closePopup();
+            }
+        }
+
+        function validateForm() {
+    const loginId = document.getElementById('loginId').value;
+    const password = document.getElementById('password').value;
+
+    // Check if both fields are empty
+    if (loginId === '' && password === '') {
+        alert('Login ID and Password cannot be empty');
+        return;
+    }
+
+    // Check if only the Login ID is empty
+    if (loginId === '') {
+        alert('Login ID cannot be empty');
+        return;
+    }
+
+    // Check if only the Password is empty
+    if (password === '') {
+        alert('Password cannot be empty');
+        return;
+    }
+
+    // Check if the password length is less than 6 characters
+    if (password.length < 6) {
+        alert('Password must be at least 6 characters long');
+        return;
+    }
+
+    // If all validations pass, show success message and redirect
+    alert('Login Successful');
+    
+    // Redirect to the home page after 2 seconds
+    setTimeout(() => {
+        window.location.href = 'home.html';
+    }, 2000); // Redirect after 2 seconds
+}
+
+    </script>
+
+</body>
+</html>

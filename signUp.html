@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ConsultWell</title>
+    <style>
+        /* Your existing CSS code here */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+        .navbar img {
+            width: 100px;
+            margin-right: 20px;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar ul li {
+            padding: 5px;
+            font-size: 18px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .navbar ul li a:hover {
+            color: #4a90e2;
+        }
+        .navbar .user {
+            width: 50px;
+            margin-left: auto;
+            vertical-align: middle;
+        }
+        main {
+            background-color: white;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+            min-height: calc(100vh - 62px);
+        }
+        .signup-box {
+            background-color: #b5d2f7;
+            padding: 10px;
+            border-radius: 10px;
+            width: 400px;
+            margin-top: 0;
+            height: 500px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 10px 5px;
+            vertical-align: top;
+        }
+        label {
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        input:focus {
+            border-color: #4a90e2;
+            outline: none;
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #357abd;
+        }
+        @media (max-width: 600px) {
+            .navbar ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .navbar img {
+                width: 80px;
+            }
+            .signup-box {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="img/image-4.png" alt="ConsultWell Logo">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="findDoctor.html">Find Doctors</a></li>
+                <li><a href="real_videoConsult.html">Video Consult</a></li>
+                <li><a href="testNow.html">Lab Tests</a></li>
+            </ul>
+        </div>
+        <img class="user" src="img/user.svg" alt="User Profile">
+    </div>
+
+    <!-- Main Section for Sign Up -->
+    <main>
+        <div class="signup-box">
+            <h2>Create Your Account</h2>
+            <form id="signup-form" action="signup_process.php" method="POST" novalidate>
+                <table>
+                    <tr>
+                        <td><label for="name">Name</label></td>
+                        <td><input type="text" id="name" name="name" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email ID</label></td>
+                        <td><input type="email" id="email" name="email" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password</label></td>
+                        <td><input type="password" id="password" name="password" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="confirm-password">Confirm Password</label></td>
+                        <td><input type="password" id="confirm-password" name="confirm_password" required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit">Sign Up</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </main>
+
+    <!-- JavaScript for Form Validation with Pop-up Alerts -->
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            // Prevent form submission to handle validation
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            // Email pattern for validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Initialize an array to hold error messages
+            let errors = [];
+
+            // Validate Name
+            if (name === '') {
+                errors.push('Please enter your name.');
+            }
+
+            // Validate Email
+            if (email === '') {
+                errors.push('Please enter your email.');
+            } else if (!emailPattern.test(email)) {
+                errors.push('Please enter a valid email address.');
+            }
+
+            // Validate Password
+            if (password === '') {
+                errors.push('Please enter a password.');
+            } else if (password.length < 6) {
+                errors.push('Password must be at least 6 characters long.');
+            }
+
+            // Validate Confirm Password
+            if (confirmPassword === '') {
+                errors.push('Please confirm your password.');
+            } else if (password !== confirmPassword) {
+                errors.push('Passwords do not match.');
+            }
+
+            // Check if there are any errors
+            if (errors.length > 0) {
+                // Display all errors in a single alert pop-up
+                alert(errors.join('\n'));
+            } else {
+                // If no errors, show success message
+                alert('Account created successfully!');
+
+                // Redirect to home page after success
+                setTimeout(() => {
+                    window.location.href = 'home.html';
+                }, 2000);
+            }
+        });
+    </script>
+
+</body>
+</html>

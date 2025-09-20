@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Doctors - ConsultWell</title>
+    <style>
+.no-underline {
+        text-decoration: none; /* Remove underline */
+        color: inherit; /* Inherit color from parent element */
+    }
+
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px; /* Add padding */
+    border-bottom: 1px solid #ccc;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar img {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar ul li {
+    padding: 5px;
+    font-size: 18px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.navbar .user {
+    width: 50px;
+    margin-left: auto;
+    vertical-align: middle; /* Ensures the icon aligns vertically */
+}
+        .main-content {
+            padding: 20px;
+            align:'center';
+        }
+
+        .doctor-section {
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+
+        .doctor {
+            display: flex;
+            width: 48%; /* Adjust the width to fit two doctors */
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+
+        .doctor img {
+            width: 100px; /* Adjust size as needed */
+            height: 100px; /* Adjust size as needed */
+            border-radius: 50%; /* Make it circular */
+            margin-right: 20px;
+        }
+
+        .doctor-info {
+            flex-grow: 1;
+        }
+
+        .doctor-info h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+
+        .doctor-info p {
+            margin: 5px 0;
+        }
+
+        .consult-button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .consult-button:hover {
+            background-color: #45a049; /* Darker green */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="img/image-4.png" alt="ConsultWell Logo">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="findDoctor.html">Find Doctors</a></li>
+                <li><a href="real_videoConsult.html">Video Consult</a></li>
+                <li><a href="testNow.html">Lab Tests</a></li>
+            </ul>
+        </div>
+        <img class="user" src="img/user.svg" alt="User Profile">
+    </div>
+
+    <div class="main-content">
+
+        <div class="doctor-section">
+            <div class="doctor">
+                <img src="img/dm.jpg" alt="Doctor 1"> <!-- Replace with actual image path -->
+                <div class="doctor-info">
+                    <h3>Dr. Rahul Sharma</h3>
+                    <p>Specialization: Cardiology</p>
+                    <p>Doctor's Fees: ₹500</p>
+                    <p>Experience: 10 years</p>
+                    <p>Location: Mumbai</p>
+                    <a href="consultNow.html" class="no-underline">
+                        <button class="consult-button">Consult Now</button></a>
+                </div>
+            </div>
+            <div class="doctor">
+                <img src="img/df.jpg" alt="Doctor 2"> <!-- Replace with actual image path -->
+                <div class="doctor-info">
+                    <h3>Dr. Priya Verma</h3>
+                    <p>Specialization: Dermatology</p>
+                    <p>Doctor's Fees: ₹600</p>
+                    <p>Experience: 8 years</p>
+                    <p>Location: Pune</p>
+                    <a href="consultNow.html" class="no-underline">
+                        <button class="consult-button">Consult Now</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="doctor-section">
+            <div class="doctor">
+                <img src="img/dm2.jpg" alt="Doctor 3"> <!-- Replace with actual image path -->
+                <div class="doctor-info">
+                    <h3>Dr. Anil Deshmukh</h3>
+                    <p>Specialization: Orthopedics</p>
+                    <p>Doctor's Fees: ₹700</p>
+                    <p>Experience: 12 years</p>
+                    <p>Location: Delhi</p>
+                    <a href="consultNow.html" class="no-underline">
+                        <button class="consult-button">Consult Now</button></a>
+                </div>
+            </div>
+            <div class="doctor">
+                <img src="img/df2.jpg" alt="Doctor 4"> <!-- Replace with actual image path -->
+                <div class="doctor-info">
+                    <h3>Dr. Sneha Kulkarni</h3>
+                    <p>Specialization: Pediatrics</p>
+                    <p>Doctor's Fees: ₹400</p>
+                    <p>Experience: 5 years</p>
+                    <p>Location: Bangalore</p>
+                    <a href="consultNow.html" class="no-underline">
+                        <button class="consult-button">Consult Now</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="doctor-section">
+            <div class="doctor">
+                <img src="img/df.jpg" alt="Doctor 5"> <!-- Replace with actual image path -->
+                <div class="doctor-info">
+                    <h3>Dr. Kavita Joshi</h3>
+                    <p>Specialization: Gynecology</p>
+                    <p>Doctor's Fees: ₹800</p>
+                    <p>Experience: 15 years</p>
+                    <p>Location: Chennai</p>
+                    <a href="consultNow.html" class="no-underline">
+                        <button class="consult-button">Consult Now</button></a>
+                </div>
+            </div>
+            <div class="doctor">
+                <img src="img/dm2.jpg" alt="Doctor 3"> <!-- Replace with actual image path -->
+                <div class="doctor-info">
+                    <h3>Dr. Nitin Deshmukh</h3>
+                    <p>Specialization: General Phycision</p>
+                    <p>Doctor's Fees: ₹600</p>
+                    <p>Experience: 12 years</p>
+                    <p>Location: hyderabad</p>
+                    <a href="consultNow.html" class="no-underline">
+                        <button class="consult-button">Consult Now</button></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

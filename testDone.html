@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Lab Test - ConsultWell</title>
+    <style>
+        /* Reset and Box Sizing */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('img1/image.png'); /* Update with the correct image path */
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            padding-left: 20px; /* Adds some padding to the left to give space */
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: absolute; /* Change to absolute to overlap hero */
+            top: 0; /* Position at the top of the hero */
+            left: 0;
+            right: 0;
+            z-index: 1; /* Ensures the navbar is above the hero section */
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar img {
+            width: 100px;
+            margin-right: 20px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            padding: 5px;
+            font-size: 18px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .navbar ul li a:hover {
+            color: #4a90e2;
+        }
+
+        .navbar .user {
+            width: 50px;
+            margin-left: auto;
+            vertical-align: middle;
+        }
+
+        /* Main Content Styling */
+        main {
+            background-color: white;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+            min-height: calc(100vh - 62px); /* Adjust for navbar height */
+        }
+
+        .test-box {
+            background-color: #b5d2f7;
+            padding: 10px; /* Decreased padding for reduced height */
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 59px;
+            height: 250px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px; /* Decreased margin for reduced height */
+            color: #333;
+            font-size: 22px; /* Adjusted font size */
+        }
+
+        form {
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 5px 3px; /* Decreased padding for reduced height */
+            vertical-align: top;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-bottom: 3px; /* Decreased margin for reduced height */
+            font-size: 14px; /* Adjusted font size */
+        }
+
+        input, select {
+            width: 100%;
+            padding: 6px; /* Decreased padding for reduced height */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px; /* Adjusted font size */
+        }
+
+        input:focus, select:focus {
+            border-color: #4a90e2;
+            outline: none;
+        }
+
+        button {
+            padding: 8px; /* Decreased padding for reduced height */
+            width: 100%;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px; /* Adjusted font size */
+            margin-top: 8px; /* Decreased margin for reduced height */
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .navbar ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .navbar img {
+                width: 80px;
+            }
+
+            .test-box {
+                width: 100%;
+                padding: 10px; /* Adjusted padding for smaller screens */
+            }
+
+            h2 {
+                font-size: 20px; /* Further reduced for smaller screens */
+            }
+
+            label, input, button {
+                font-size: 14px; /* Ensure readability on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="img/image-4.png" alt="ConsultWell Logo">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="findDoctor.html">Find Doctors</a></li>
+                <li><a href="vc_doctor.html">Video Consult</a></li>
+                <li><a href="testNow.html">Lab Tests</a></li>
+                <!-- Removed Sign Up Link as per your instructions -->
+            </ul>
+        </div>
+        <img class="user" src="img/user.svg" alt="User Profile">
+    </div>
+
+     <!-- Hero Section -->
+     <section class="hero">
+    </section>
+
+    <!-- Main Section for Booking Lab Test -->
+    <main>
+        <div class="test-box">
+            <h2>Book Your Lab Test</h2>
+            <form id="test-form" action="book_test_process.php" method="POST" novalidate>
+                <table>
+                    <tr>
+                        <td><label for="test-name">Test Name</label></td>
+                        <td><input type="text" id="test-name" name="test_name" required></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><label for="lab-location">Lab Location</label></td>
+                        <td><input type="text" id="lab-location" name="lab_location" required></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit">Book</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </main>
+
+    <!-- JavaScript for Form Validation with Pop-up Alerts -->
+    <script>
+        document.getElementById('test-form').addEventListener('submit', function(e) {
+            // Prevent form submission to handle validation
+            e.preventDefault();
+
+            // Get form values
+            const testName = document.getElementById('test-name').value.trim();
+            const labLocation = document.getElementById('lab-location').value.trim();
+
+            // Initialize an array to hold error messages
+            let errors = [];
+
+            // Validate Test Name
+            if (testName === '') {
+                errors.push('Please enter the test name.');
+            }
+
+            // Validate Lab Location
+            if (labLocation === '') {
+                errors.push('Please enter the lab location.');
+            }
+
+            // Check if there are any errors
+            if (errors.length > 0) {
+                // Display all errors in a single alert pop-up
+                alert(errors.join('\n'));
+            } else {
+                // If no errors, you can submit the form
+                // For demonstration, we'll show a success message
+                alert('Lab test booked successfully!');
+                // Optionally, you can submit the form here
+                // e.target.submit();
+                // Or redirect to another page
+                // window.location.href = 'confirmation.html';
+                // For now, we'll reset the form
+                e.target.reset();
+            }
+        });
+    </script>
+
+    <p></p>
+
+</body>
+</html>

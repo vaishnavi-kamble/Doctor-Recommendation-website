@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: white;
+            width: 80%;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .summary {
+            background-color: #e3f2fd;
+            padding: 20px;
+            width: 40%;
+            border-radius: 10px;
+        }
+
+        .summary h3 {
+            margin-bottom: 15px;
+        }
+
+        .payment {
+            background-color: #b3e5fc;
+            padding: 20px;
+            width: 40%;
+            border-radius: 10px;
+        }
+
+        .payment h3 {
+            text-align: center;
+        }
+
+        .payment-modes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .payment-modes div {
+            background-color: white;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .payment-modes div img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+
+        .payment-modes div p {
+            text-align: center;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover, .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="summary">
+            <h3>Summary for the payment</h3>
+            <p><strong>Patient's name:</strong> ___________</p>
+            <p><strong>Doctor's name:</strong> ___________</p>
+            <p><strong>Booking Summary:</strong> ___________</p>
+            <p><strong>Consulting charges/ lab tests/ book an appointment:</strong></p>
+            <p><strong>Total Amount:</strong> ___________</p>
+        </div>
+
+        <div class="payment">
+            <h3>Payment Modes</h3>
+            <div class="payment-modes">
+                <div id="netBanking" onclick="showModal('Net Banking')">
+                    <img src="img/netbank.png" alt="Net Banking">
+                    <p>Net Banking</p>
+                </div>
+                <div id="card" onclick="showModal('Card')">
+                    <img src="img/card.png" alt="Card">
+                    <p>Card</p>
+                </div>
+                <div id="qr" onclick="showModal('QR')">
+                    <img src="img/qr.png" alt="Generate QR">
+                    <p>Generate QR</p>
+                </div>
+                <div id="upi" onclick="showModal('UPI')">
+                    <img src="img/upi.png" alt="BHIM/UPI">
+                    <p>BHIM/UPI</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Popup -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="paymentType"></h3>
+            
+            <!-- Net Banking Form -->
+            <form id="netBankingForm" class="hidden" onsubmit="validateNetBanking(event)">
+                <label for="bankName">Bank Name:</label>
+                <input type="text" id="bankName" placeholder="Enter Bank Name">
+                <p id="bankNameError" class="error"></p>
+
+                <label for="accountNumber">Account Number:</label>
+                <input type="text" id="accountNumber" placeholder="Enter Account Number">
+                <p id="accountNumberError" class="error"></p>
+
+                <button type="submit">Submit Payment</button>
+            </form>
+
+            <!-- Card Payment Form -->
+            <form id="cardForm" class="hidden" onsubmit="validateCard(event)">
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" placeholder="Enter Card Number">
+                <p id="cardNumberError" class="error"></p>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" placeholder="Enter CVV">
+                <p id="cvvError" class="error"></p>
+
+                <button type="submit">Submit Payment</button>
+            </form>
+
+            <!-- QR Payment Form -->
+            <form id="qrForm" class="hidden" onsubmit="validateQR(event)">
+                <label for="qrCode">Scan QR Code:</label>
+                <p>QR code will be generated automatically for payment.</p>
+                <button type="submit">Proceed with QR Payment</button>
+            </form>
+
+            <!-- UPI Payment Form -->
+            <form id="upiForm" class="hidden" onsubmit="validateUPI(event)">
+                <label for="upiId">UPI ID:</label>
+                <input type="text" id="upiId" placeholder="Enter UPI ID">
+                <p id="upiIdError" class="error"></p>
+
+                <button type="submit">Submit Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Show Modal with Payment Type and Display Correct Form
+        function showModal(paymentType) {
+            document.getElementById('paymentType').innerText = paymentType;
+            document.getElementById('paymentModal').style.display = 'flex';
+
+            hideAllForms();
+
+            if (paymentType === 'Net Banking') {
+                document.getElementById('netBankingForm').classList.remove('hidden');
+            } else if (paymentType === 'Card') {
+                document.getElementById('cardForm').classList.remove('hidden');
+            } else if (paymentType === 'QR') {
+                document.getElementById('qrForm').classList.remove('hidden');
+            } else if (paymentType === 'UPI') {
+                document.getElementById('upiForm').classList.remove('hidden');
+            }
+        }
+
+        // Hide all forms
+        function hideAllForms() {
+            document.getElementById('netBankingForm').classList.add('hidden');
+            document.getElementById('cardForm').classList.add('hidden');
+            document.getElementById('qrForm').classList.add('hidden');
+            document.getElementById('upiForm').classList.add('hidden');
+        }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        // Net Banking Validation
+        function validateNetBanking(event) {
+            event.preventDefault();
+
+            const bankName = document.getElementById('bankName').value.trim();
+            const accountNumber = document.getElementById('accountNumber').value.trim();
+            let valid = true;
+
+            if (bankName === "") {
+                document.getElementById('bankNameError').innerText = "Please enter a valid bank name.";
+                valid = false;
+            } else {
+                document.getElementById('bankNameError').innerText = "";
+            }
+
+            if (accountNumber === "" || isNaN(accountNumber) || accountNumber.length < 10) {
+                document.getElementById('accountNumberError').innerText = "Please enter a valid account number.";
+                valid = false;
+            } else {
+                document.getElementById('accountNumberError').innerText = "";
+            }
+
+            if (valid) {
+                alert('Payment successful via Net Banking');
+                closeModal();
+            }
+        }
+
+        // Card Payment Validation
+        function validateCard(event) {
+            event.preventDefault();
+
+            const cardNumber = document.getElementById('cardNumber').value.trim();
+            const cvv = document.getElementById('cvv').value.trim();
+            let valid = true;
+
+            if (cardNumber === "" || isNaN(cardNumber) || cardNumber.length !== 16) {
+                document.getElementById('cardNumberError').innerText = "Please enter a valid card number.";
+                valid = false;
+            } else {
+                document.getElementById('cardNumberError').innerText = "";
+            }
+
+            if (cvv === "" || isNaN(cvv) || cvv.length !== 3) {
+                document.getElementById('cvvError').innerText = "Please enter a valid CVV.";
+                valid = false;
+            } else {
+                document.getElementById('cvvError').innerText = "";
+            }
+
+            if (valid) {
+                alert('Payment successful via Card');
+                closeModal();
+            }
+        }
+
+        // QR Payment Validation
+        function validateQR(event) {
+            event.preventDefault();
+            alert('Payment successful via QR code');
+            closeModal();
+        }
+
+        // UPI Payment Validation
+        function validateUPI(event) {
+            event.preventDefault();
+
+            const upiId = document.getElementById('upiId').value.trim();
+            let valid = true;
+
+            if (upiId === "" || !upiId.includes('@')) {
+                document.getElementById('upiIdError').innerText = "Please enter a valid UPI ID.";
+                valid = false;
+            } else {
+                document.getElementById('upiIdError').innerText = "";
+            }
+
+            if (valid) {
+                alert('Payment successful via UPI');
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>

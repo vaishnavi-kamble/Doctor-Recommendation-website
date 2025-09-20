@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Consult</title>
+    <style>
+        .no-underline {
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit color from parent element */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar img {
+            width: 100px;
+            margin-right: 20px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar ul li {
+            padding: 5px;
+            font-size: 18px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .navbar .user {
+            width: 50px;
+            margin-left: auto;
+            vertical-align: middle;
+        }
+
+        main {
+            background-color: white;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .consultation-box {
+            background-color: #b5d2f7;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            margin-top: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        .doctor-details {
+            margin-top: 20px;
+        }
+
+        .doctor-details p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="img/image-4.png" alt="ConsultWell Logo">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="findDoctor.html">Find Doctors</a></li>
+                <li><a href="real_videoConsult.html">Video Consult</a></li>
+                <li><a href="testNow.html">Lab Tests</a></li>
+            </ul>
+        </div>
+        <img class="user" src="img/user.svg" alt="User Profile">
+    </div>
+
+    <!-- Main Section for Video Consultation -->
+    <main>
+        <div class="consultation-box">
+            <h2>Consult with Doctor</h2>
+            <form action="demo.html" method="post" onsubmit="return validateForm()">
+                <table>
+                    <tr>
+                        <td><label for="patient-name">Patient Name</label></td>
+                        <td><input type="text" id="patient-name" name="patient-name" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="mobile-number">Mobile Number</label></td>
+                        <td>
+                            <input type="tel" id="mobile-number" name="mobile-number" required 
+                                   pattern="^\d{10}$" title="Please enter a valid 10-digit mobile number">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="symptoms">Describe Symptoms</label></td>
+                        <td><input type="text" id="symptoms" name="symptoms" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="slot">Select your slot</label></td>
+                        <td>
+                            <select id="slot" name="slot">
+                                <option value="" disabled selected>Select time</option>
+                                <option value="10:00">10:00 pm</option>
+                                <option value="10:30">10:30 pm</option>
+                                <option value="11:00">11:00 pm</option>
+                                <option value="11:30">11:30 pm</option>
+                                <option value="12:00">12:00 pm</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="location">Location</label></td>
+                        <td><input type="text" id="location" name="location" required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit">Consult Now</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function validateForm() {
+            const patientName = document.getElementById('patient-name').value.trim();
+            const mobileNumber = document.getElementById('mobile-number').value.trim();
+            const symptoms = document.getElementById('symptoms').value.trim();
+            const location = document.getElementById('location').value.trim();
+
+            if (!patientName || !mobileNumber || !symptoms || !location) {
+                alert("Please fill in all required fields.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <style>
+
+          .no-underline {
+        text-decoration: none; /* Remove underline */
+        color: inherit; /* Inherit color from parent element */
+    }
+      /* Navbar */
+
+        .hero button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 100px; /* Ensures no additional margin on the left */
+        }
+
+        .hero button:hover {
+            background-color: #357ab9;
+        }
+
+
+        
+        .doctors-section {
+            margin: 0px;
+            margin-left: 100px;
+        }
+
+        .doctor-list {
+            display: flex;
+            gap: 80px;
+        }
+
+        .doctor-card {
+            background-color: #46739e;
+            width: 150px;
+            height: 50px;
+            display: flex;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-left: 0px;
+            text-align: center;
+        }
+
+        .doctor-card:hover {
+            background-color: #365b7a;
+        }
+
+       
+.doctors-section h2 {
+    color: #00838F;
+    text-align: left;
+    margin-left: 0px;
+    margin-top: 0;
+}
+        .doctor-button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .doctor-button:hover {
+            color: #cccccc;
+        }
+
+        
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px; /* Add padding */
+    border-bottom: 1px solid #ccc;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar img {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar ul li {
+    padding: 5px;
+    font-size: 18px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.navbar .user {
+    width: 50px;
+    margin-left: auto;
+    vertical-align: middle; /* Ensures the icon aligns vertically */
+}
+
+/* Search Section */
+.search-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0; /* Reduce padding for less space */
+    background-color: white;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar label {
+    margin-left: 100px;
+    margin-right: 20px;
+    font-size: 18px;
+    margin-bottom: 200px;
+}
+
+.search-bar input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 200px;
+}
+
+.search-bar input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #017df6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 200px;
+}
+
+.search-image img {
+    width: 500px; /* Reduced size to balance layout */
+    height: 300px;
+    margin-right: 100px;
+    
+
+}
+
+/* Specialties Section */
+.specialties {
+    padding: 20px 0; /* Reduced top and bottom padding */
+    text-align: center;
+    background-color: white;
+}
+
+.specialties h2 {
+    color: #00838F;
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 0;
+}
+
+.specialties-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.specialty {
+    text-align: center;
+    padding: 10px;
+}
+
+.specialty img {
+    width: 120px;
+    margin-bottom: 10px;
+}
+
+.specialty p {
+    color: black;
+    font-weight: bold;
+}
+
+/* Footer */
+.footer {
+    padding: 10px;
+    text-align: center;
+    background-color: #4ABDAC;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px; /* Add some margin to space it from specialties */
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="img/image-4.png" alt="ConsultWell Logo">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="findDoctor.html">Find Doctors</a></li>
+                <li><a href="real_videoConsult.html">Video Consult</a></li>
+                <li><a href="testNow.html">Lab Tests</a></li>
+            </ul>
+        </div>
+        <img class="user" src="img/user.svg" alt="User Profile">
+    </div>
+
+    <!-- Search Section (Search Bar + Image) -->
+    <div class="search-section">
+        <!-- Hero Section -->
+    <section class="hero">
+        <a href="videoConsult.html" class="no-underline">
+        <button>Video Consult now</button></a>
+    </section>
+        <div class="search-image">
+            <img src="img/image-35.png" alt="Consultation Illustration"> <!-- Replace with your image source -->
+        </div>
+    </div>
+
+    
+<div class="doctors-section">
+    <h2>Most consulted doctors</h2>
+    <div class="doctor-list">
+        <div class="doctor-card">
+            <a href="videoConsult.html" class="no-underline">
+            <button class="doctor-button" onclick="window.location.href='doctor1.html'">Dr. Rahul Sharma</button></a>
+        </div>
+        <div class="doctor-card">
+            <a href="videoConsult.html" class="no-underline">
+            <button class="doctor-button" onclick="window.location.href='doctor2.html'">Dr. Priya Verma</button></a>
+        </div>
+        <div class="doctor-card">
+            <a href="videoConsult.html" class="no-underline">
+            <button class="doctor-button" onclick="window.location.href='doctor3.html'">Dr. Anil Deshmukh</button></a>
+        </div>
+        <div class="doctor-card">
+            <a href="videoConsult.html" class="no-underline">
+            <button class="doctor-button" onclick="window.location.href='doctor4.html'">Dr. Sneha Kulkarni</button></a>
+        </div>
+        <div class="doctor-card">
+            <a href="videoConsult.html" class="no-underline">
+            <button class="doctor-button" onclick="window.location.href='doctor5.html'">Dr. Kavita Joshi</button></a>
+        </div>
+        <div class="doctor-card">
+            <a href="videoConsult.html" class="no-underline">
+            <button class="doctor-button" onclick="window.location.href='doctor5.html'">Dr. Nitin Deshmukh</button></a>
+        </div>
+    </div>
+</div>
+
+    <!-- Specialties Section -->
+    <div class="specialties">
+        <h2>Common Health Concerns</h2>
+        <div class="specialties-container">
+            <div class="specialty">
+                <a href="doctor.html" class="no-underline">
+                <img src="img/image-28.png" alt="Gynecology"></a>
+            </div>
+            <div class="specialty">
+                <a href="doctor.html" class="no-underline">
+                <img src="img/image-29.png" alt="Sexology"></a>
+                
+            </div>
+            <div class="specialty">
+                <a href="doctor.html" class="no-underline">
+                <img src="img/image-30.png" alt="General Physician"></a>
+               
+            </div>
+            <div class="specialty">
+                <a href="doctor.html" class="no-underline">
+                <img src="img/image-31.png" alt="Dermatology"></a>
+                
+            </div>
+            <div class="specialty">
+                <a href="doctor.html" class="no-underline">
+                <img src="img/image-32.png" alt="Psychiatry"></a>
+                
+            </div>
+            <div class="specialty">
+                <a href="doctor.html" class="no-underline">
+                <img src="img/image-33.png" alt="Stomach and Digestion"></a>
+                
+            </div>
+            <div class="specialty">
+                <a href="doctor.html" class="no-underline">
+                <img src="img/image-34.png" alt="Pediatrics"></a>
+              
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Reviews and FAQs</p>
+    </div>
+
+</body>
+</html>

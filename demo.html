@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Summary</title>
+    <style>
+
+        
+.no-underline {
+        text-decoration: none; /* Remove underline */
+        color: inherit; /* Inherit color from parent element */
+    }
+
+
+         /* Your existing CSS code here */
+         .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+        .navbar img {
+            width: 100px;
+            margin-right: 20px;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar ul li {
+            padding: 5px;
+            font-size: 18px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .navbar ul li a:hover {
+            color: #4a90e2;
+        }
+        .navbar .user {
+            width: 50px;
+            margin-left: auto;
+            vertical-align: middle;
+        }
+
+        .payment {
+            background-color: #b3e5fc;
+            padding: 20px;
+            width: 40%;
+            border-radius: 10px;
+            margin-top: 50px;
+            margin-left: 430px;
+            margin-right: 100px;
+        }
+
+        .payment h3 {
+            text-align: center;
+        }
+
+        .payment-modes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .payment-modes div {
+            background-color: white;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .payment-modes div img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+
+        .payment-modes div p {
+            text-align: center;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 30%;
+            text-align: center;
+        }
+
+        .modal-content input[type="text"],
+        .modal-content input[type="number"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .success-message,
+        .error-message {
+            color: green;
+            margin-top: 10px;
+        }
+
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="navbar-left">
+        <img src="img/image-4.png" alt="ConsultWell Logo">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="findDoctor.html">Find Doctors</a></li>
+            <li><a href="real_videoConsult.html">Video Consult</a></li>
+            <li><a href="testNow.html">Lab Tests</a></li>
+        </ul>
+    </div>
+    <img class="user" src="img/user.svg" alt="User Profile">
+</div>
+
+        <div class="payment">
+            <h3>Payment Modes</h3>
+            <div class="payment-modes">
+                <div id="netBanking">
+                    <img src="img/netbank.png" alt="Net Banking">
+                    <p>Net Banking</p>
+                </div>
+                <div id="cardPayment">
+                    <img src="img/card.png" alt="Card">
+                    <p>Card</p>
+                </div>
+                <div id="qrPayment">
+                    <img src="img/qr.png" alt="Generate QR">
+                    <p>Generate QR</p>
+                </div>
+                <div id="upiPayment">
+                    <img src="img/upi.png" alt="BHIM/UPI">
+                    <p>BHIM/UPI</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Payment Forms -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="paymentType">Payment</h3>
+            <div id="paymentForm"></div>
+            <button id="submitPayment">Submit Payment</button>
+            <div id="successMessage" class="success-message"></div>
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+    </div>
+
+    <script>
+        // Get modal and modal elements
+        var modal = document.getElementById("paymentModal");
+        var closeBtn = document.querySelector(".close");
+        var paymentTypeTitle = document.getElementById("paymentType");
+        var paymentForm = document.getElementById("paymentForm");
+        var successMessage = document.getElementById("successMessage");
+        var errorMessage = document.getElementById("errorMessage");
+
+        // Payment modes
+        var paymentModes = {
+            "netBanking": {
+                "title": "Net Banking",
+                "form": '<input type="text" id="bankName" placeholder="Bank Name"><br><input type="text" id="accountNumber" placeholder="Account Number">'
+            },
+            "cardPayment": {
+                "title": "Card Payment",
+                "form": '<input type="text" id="cardNumber" placeholder="Card Number"><br><input type="text" id="cardHolderName" placeholder="Card Holder Name">'
+            },
+            "qrPayment": {
+                "title": "Generate QR",
+                "form": '<p>Scan the QR code to complete the payment.</p><img src="img/qr.png" alt="QR Code">'
+            },
+            "upiPayment": {
+                "title": "BHIM/UPI Payment",
+                "form": '<input type="text" id="upiId" placeholder="UPI ID"><br><input type="text" id="upiPin" placeholder="UPI Pin">'
+            }
+        };
+
+        // Open modal on click of payment modes
+        document.querySelectorAll('.payment-modes div').forEach(function(paymentMode) {
+            paymentMode.onclick = function() {
+                var modeId = this.id;
+                var paymentDetails = paymentModes[modeId];
+
+                // Set modal content
+                paymentTypeTitle.innerHTML = paymentDetails.title;
+                paymentForm.innerHTML = paymentDetails.form;
+                successMessage.innerHTML = '';
+                errorMessage.innerHTML = '';
+
+                // Show modal
+                modal.style.display = "block";
+            };
+        });
+
+        // Close the modal when the user clicks on the close button
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        };
+
+        // Close the modal when the user clicks anywhere outside the modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+
+        // Handle payment submission
+document.getElementById("submitPayment").onclick = function() {
+    successMessage.innerHTML = "";
+    errorMessage.innerHTML = "";
+    var isValid = true;
+
+    // Get all inputs
+    var bankName = document.getElementById("bankName");
+    var accountNumber = document.getElementById("accountNumber");
+    var cardNumber = document.getElementById("cardNumber");
+    var cardHolderName = document.getElementById("cardHolderName");
+    var upiId = document.getElementById("upiId");
+    var upiPin = document.getElementById("upiPin");
+
+    // Reset all error messages and styles
+    [bankName, accountNumber, cardNumber, cardHolderName, upiId, upiPin].forEach(function(input) {
+        if (input) {
+            input.style.borderColor = '';
+        }
+    });
+
+    // Validate based on selected payment method
+    if (accountNumber && !accountNumber.value) {
+        errorMessage.innerHTML += "Account Number is required.<br>";
+        accountNumber.style.borderColor = 'red';
+        isValid = false;
+    } else if (accountNumber && !/^\d{9,18}$/.test(accountNumber.value)) {
+        errorMessage.innerHTML += "Invalid Account Number. Must be 9 to 18 digits.<br>";
+        accountNumber.style.borderColor = 'red';
+        isValid = false;
+    }
+
+    if (cardNumber && !cardNumber.value) {
+        errorMessage.innerHTML += "Card Number is required.<br>";
+        cardNumber.style.borderColor = 'red';
+        isValid = false;
+    } else if (cardNumber && !/^\d{16}$/.test(cardNumber.value)) {
+        errorMessage.innerHTML += "Invalid Card Number. Must be 16 digits.<br>";
+        cardNumber.style.borderColor = 'red';
+        isValid = false;
+    }
+
+    if (upiId && !upiId.value) {
+        errorMessage.innerHTML += "UPI ID is required.<br>";
+        upiId.style.borderColor = 'red';
+        isValid = false;
+    }
+
+    if (upiPin && !upiPin.value) {
+        errorMessage.innerHTML += "UPI Pin is required.<br>";
+        upiPin.style.borderColor = 'red';
+        isValid = false;
+    } else if (upiPin && (!/^\d{4}$/.test(upiPin.value))) {
+        errorMessage.innerHTML += "Invalid UPI Pin. Must be exactly 4 digits.<br>";
+        upiPin.style.borderColor = 'red';
+        isValid = false;
+    }
+
+    // If all inputs are valid
+    if (isValid) {
+        successMessage.innerHTML = "Payment Successful!";
+        setTimeout(function() {
+            modal.style.display = "none";
+            // Optionally clear the form fields
+            paymentForm.innerHTML = '';
+        }, 2000); // Close modal after 2 seconds
+    }
+};
+
+    </script>
+</body>
+</html>
